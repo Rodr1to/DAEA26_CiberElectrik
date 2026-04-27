@@ -1,4 +1,49 @@
 package pe.com.ciberelectrik.service.impl;
 
-public class TipoDocumentoServiceImpl {
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import pe.com.ciberelectrik.entity.TipoDocumentoEntity;
+import pe.com.ciberelectrik.repository.TipoDocumentoRepository;
+import pe.com.ciberelectrik.service.TipoDocumentoService;
+import java.util.List;
+
+@Service
+public class TipoDocumentoServiceImpl implements TipoDocumentoService {
+
+    @Autowired
+    private TipoDocumentoRepository repositorio;
+
+    @Override
+    public List<TipoDocumentoEntity> findAll() { return repositorio.findAll(); }
+
+    @Override
+    public List<TipoDocumentoEntity> findAllCustom() { return repositorio.findAllCustom(); }
+
+    @Override
+    public TipoDocumentoEntity findById(Integer id) { return repositorio.findById(id).get(); }
+
+    @Override
+    public TipoDocumentoEntity add(TipoDocumentoEntity obj) { return repositorio.save(obj); }
+
+    @Override
+    public TipoDocumentoEntity update(TipoDocumentoEntity obj, Integer id) {
+        TipoDocumentoEntity objtipd = repositorio.findById(id).get();
+        BeanUtils.copyProperties(obj, objtipd, "codtipd");
+        return repositorio.save(objtipd);
+    }
+
+    @Override
+    public TipoDocumentoEntity delete(Integer id) {
+        TipoDocumentoEntity objtipd = repositorio.findById(id).get();
+        objtipd.setEsttipd(false);
+        return repositorio.save(objtipd);
+    }
+
+    @Override
+    public TipoDocumentoEntity enable(Integer id) {
+        TipoDocumentoEntity objtipd = repositorio.findById(id).get();
+        objtipd.setEsttipd(true);
+        return repositorio.save(objtipd);
+    }
 }

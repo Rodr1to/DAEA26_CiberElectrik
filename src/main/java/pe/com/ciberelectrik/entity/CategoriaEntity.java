@@ -9,17 +9,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "distrito")
-public class DistritoEntity {
+@Table(name = "categoria")
+public class CategoriaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "coddis")
-    private Integer coddis;
+    @Column(name = "codcat")
+    private Integer codcat;
 
-    @Column(name = "nomdis", nullable = false, length = 30)
-    private String nomdis;
+    @Column(name = "nomcat", nullable = false, length = 40)
+    private String nomcat;
 
-    @Column(name = "estdis", nullable = false)
-    private Boolean estdis;
+    @Column(name = "estcat", nullable = false)
+    private Boolean estcat;
 }
