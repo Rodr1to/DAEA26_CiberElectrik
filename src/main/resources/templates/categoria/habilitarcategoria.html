@@ -10,11 +10,10 @@
 </head>
 
 <body>
-    <div clas="container">
+    <div class="container">
         <h1>Habilitacion de Categoria</h1>
         <a th:href="@{/categoria/listar}" class="btn btn-dark">Regresar Categoria</a>
-        <div class="mb3"></div>
-        <!-- inicio de la tabla -->
+        <div class="mb-3"></div>
         <div class="table-responsive">
             <table class="table table-striped table-hover table-bordered">
                 <thead class="table-dark">
@@ -27,11 +26,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td><a href="#" class="btn btn-warning">Habilitar</a></td>
+                    <tr th:each="c : ${categorias}" th:if="${!c.estcat}">
+                        <th scope="row" th:text="${c.codcat}"></th>
+                        <td th:text="${c.nomcat}"></td>
+                        <td>Inactivo</td>
+                        <td><a th:href="@{/categoria/habilitar/{id}(id=${c.codcat})}"
+                                class="btn btn-warning">Habilitar</a></td>
                         <td><a href="#" class="btn btn-danger">Deshabilitar</a></td>
                     </tr>
                 </tbody>
