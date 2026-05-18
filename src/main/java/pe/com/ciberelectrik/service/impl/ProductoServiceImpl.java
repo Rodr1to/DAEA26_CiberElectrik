@@ -15,35 +15,42 @@ public class ProductoServiceImpl implements ProductoService {
     private ProductoRepository repositorio;
 
     @Override
-    public List<ProductoEntity> findAll() { return repositorio.findAll(); }
+    public List<ProductoEntity> findAll() {
+        return repositorio.findAll(); }
 
     @Override
-    public List<ProductoEntity> findAllCustom() { return repositorio.findAllCustom(); }
+    public List<ProductoEntity> findAllCustom() {
+        return repositorio.findAllCustom();
+    }
 
     @Override
-    public ProductoEntity findById(Integer id) { return repositorio.findById(id).get(); }
+    public ProductoEntity findById(Long id) {
+        return repositorio.findById(id).get();
+    }
 
     @Override
-    public ProductoEntity add(ProductoEntity obj) { return repositorio.save(obj); }
+    public ProductoEntity add(ProductoEntity obj) {
+        return repositorio.save(obj);
+    }
 
     @Override
-    public ProductoEntity update(ProductoEntity obj, Integer id) {
+    public ProductoEntity update(ProductoEntity obj, Long id) {
         ProductoEntity objpro = repositorio.findById(id).get();
         BeanUtils.copyProperties(obj, objpro, "codpro");
         return repositorio.save(objpro);
     }
 
     @Override
-    public ProductoEntity delete(Integer id) {
+    public ProductoEntity delete(Long id) {
         ProductoEntity objpro = repositorio.findById(id).get();
-        objpro.setEstpro(false);
+        objpro.setEstado(false);
         return repositorio.save(objpro);
     }
 
     @Override
-    public ProductoEntity enable(Integer id) {
+    public ProductoEntity enable(Long id) {
         ProductoEntity objpro = repositorio.findById(id).get();
-        objpro.setEstpro(true);
+        objpro.setEstado(true);
         return repositorio.save(objpro);
     }
 }

@@ -6,9 +6,9 @@ import java.util.List;
 public interface ProductoService {
     List<ProductoEntity> findAll();
     List<ProductoEntity> findAllCustom();
-    ProductoEntity findById(Integer id);
+    ProductoEntity findById(Long id);
     ProductoEntity add(ProductoEntity obj);
-    ProductoEntity update(ProductoEntity obj, Integer id);
-    ProductoEntity delete(Integer id);
-    ProductoEntity enable(Integer id);
+    ProductoEntity update(ProductoEntity obj, Long id);
+    ProductoEntity delete(Long id);
+    ProductoEntity enable(Long id);
 }

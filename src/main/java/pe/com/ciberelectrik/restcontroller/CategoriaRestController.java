@@ -14,23 +14,37 @@ public class CategoriaRestController {
     private CategoriaService servicio;
 
     @GetMapping
-    public List<CategoriaEntity> findAll() { return servicio.findAll(); }
+    public List<CategoriaEntity> findAll() {
+        return servicio.findAll();
+    }
 
     @GetMapping("/custom")
-    public List<CategoriaEntity> findAllCustom() { return servicio.findAllCustom(); }
+    public List<CategoriaEntity> findAllCustom() {
+        return servicio.findAllCustom();
+    }
 
     @GetMapping("/{id}")
-    public CategoriaEntity findById(@PathVariable Integer id) { return servicio.findById(id); }
+    public CategoriaEntity findById(@PathVariable Long id) {
+        return servicio.findById(id);
+    }
 
     @PostMapping
-    public CategoriaEntity add(@RequestBody CategoriaEntity obj) { return servicio.add(obj); }
+    public CategoriaEntity add(@RequestBody CategoriaEntity obj) {
+        return servicio.add(obj);
+    }
 
     @PutMapping("/{id}")
-    public CategoriaEntity update(@RequestBody CategoriaEntity obj, @PathVariable Integer id) { return servicio.update(obj, id); }
+    public CategoriaEntity update(@RequestBody CategoriaEntity obj, @PathVariable Long id) {
+        return servicio.update(obj, id);
+    }
 
     @DeleteMapping("/{id}")
-    public CategoriaEntity delete(@PathVariable Integer id) { return servicio.delete(id); }
+    public CategoriaEntity delete(@PathVariable Long id) {
+        return servicio.delete(id);
+    }
 
     @PutMapping("/enable/{id}")
-    public CategoriaEntity enable(@PathVariable Integer id) { return servicio.enable(id); }
+    public CategoriaEntity enable(@PathVariable Long id) {
+        return servicio.enable(id);
+    }
 }

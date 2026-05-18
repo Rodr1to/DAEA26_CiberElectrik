@@ -1,46 +1,62 @@
 package pe.com.ciberelectrik.entity;
 
-import jakarta.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDate;
 
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@AllArgsConstructor
+@Data
+@Builder
+@Entity(name = "ProductoEntity")
 @Table(name = "producto")
-public class ProductoEntity {
+public class ProductoEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codpro")
-    private Integer codpro;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long codigo;
 
-    @Column(name = "nompro", nullable = false, length = 60)
-    private String nompro;
+    @Column(name = "nompro", length = 60,nullable = false)
+    private String nombre;
 
-    @Column(name = "despro", nullable = false, length = 300)
-    private String despro;
+    @Column(name = "despro", length = 300,nullable = false)
+    private String descripcion;
 
-    @Column(name = "fecing", nullable = false)
-    private LocalDate fecing;
+    @Column(name = "fecing",nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd") //formato de fecha
+    private LocalDate fechaingreso;
 
     @Column(name = "prepro", nullable = false)
-    private Double prepro;
+    private double precio;
 
-    @Column(name = "canpro", nullable = false)
-    private Integer canpro;
+    @Column(name = "canpro",nullable = false)
+    private int cantidad;
 
-    @Column(name = "estpro", nullable = false)
-    private Boolean estpro;
+    @Column(name="estpro", nullable = false)
+    private Boolean estado;
 
+    //claves foraneas
+    //relacion de muchos a uno
     @ManyToOne
-    @JoinColumn(name = "codmar", referencedColumnName = "codmar", nullable = false)
+    @JoinColumn(name = "codmar",nullable = false)
     private MarcaEntity marca;
 
     @ManyToOne
-    @JoinColumn(name = "codcat", referencedColumnName = "codcat", nullable = false)
+    @JoinColumn(name = "codcat",nullable = false)
     private CategoriaEntity categoria;
 }
+

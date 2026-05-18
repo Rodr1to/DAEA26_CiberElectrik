@@ -15,35 +15,43 @@ public class CategoriaServiceImpl implements CategoriaService {
     private CategoriaRepository repositorio;
 
     @Override
-    public List<CategoriaEntity> findAll() { return repositorio.findAll(); }
+    public List<CategoriaEntity> findAll() {
+        return repositorio.findAll();
+    }
 
     @Override
-    public List<CategoriaEntity> findAllCustom() { return repositorio.findAllCustom(); }
+    public List<CategoriaEntity> findAllCustom() {
+        return repositorio.findAllCustom();
+    }
 
     @Override
-    public CategoriaEntity findById(Integer id) { return repositorio.findById(id).get(); }
+    public CategoriaEntity findById(Long id) {
+        return repositorio.findById(id).get();
+    }
 
     @Override
-    public CategoriaEntity add(CategoriaEntity obj) { return repositorio.save(obj); }
+    public CategoriaEntity add(CategoriaEntity obj) {
+        return repositorio.save(obj);
+    }
 
     @Override
-    public CategoriaEntity update(CategoriaEntity obj, Integer id) {
+    public CategoriaEntity update(CategoriaEntity obj, Long id) {
         CategoriaEntity objcat = repositorio.findById(id).get();
         BeanUtils.copyProperties(obj, objcat, "codcat");
         return repositorio.save(objcat);
     }
 
     @Override
-    public CategoriaEntity delete(Integer id) {
+    public CategoriaEntity delete(Long id) {
         CategoriaEntity objcat = repositorio.findById(id).get();
-        objcat.setEstcat(false);
+        objcat.setEstado(false);
         return repositorio.save(objcat);
     }
 
     @Override
-    public CategoriaEntity enable(Integer id) {
+    public CategoriaEntity enable(Long id) {
         CategoriaEntity objcat = repositorio.findById(id).get();
-        objcat.setEstcat(true);
+        objcat.setEstado(true);
         return repositorio.save(objcat);
     }
 }

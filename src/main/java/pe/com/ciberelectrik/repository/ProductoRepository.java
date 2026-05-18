@@ -7,7 +7,7 @@ import pe.com.ciberelectrik.entity.ProductoEntity;
 import java.util.List;
 
 @Repository
-public interface ProductoRepository extends JpaRepository<ProductoEntity, Integer> {
-    @Query("SELECT p FROM ProductoEntity p WHERE p.estpro = true")
+public interface ProductoRepository extends JpaRepository<ProductoEntity, Long> {
+    @Query("SELECT p FROM ProductoEntity p WHERE p.estado = true")
     List<ProductoEntity> findAllCustom();
 }

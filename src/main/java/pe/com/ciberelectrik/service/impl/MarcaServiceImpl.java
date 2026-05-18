@@ -15,35 +15,43 @@ public class MarcaServiceImpl implements MarcaService {
     private MarcaRepository repositorio;
 
     @Override
-    public List<MarcaEntity> findAll() { return repositorio.findAll(); }
+    public List<MarcaEntity> findAll() {
+        return repositorio.findAll();
+    }
 
     @Override
-    public List<MarcaEntity> findAllCustom() { return repositorio.findAllCustom(); }
+    public List<MarcaEntity> findAllCustom() {
+        return repositorio.findAllCustom();
+    }
 
     @Override
-    public MarcaEntity findById(Integer id) { return repositorio.findById(id).get(); }
+    public MarcaEntity findById(Long id) {
+        return repositorio.findById(id).get();
+    }
 
     @Override
-    public MarcaEntity add(MarcaEntity obj) { return repositorio.save(obj); }
+    public MarcaEntity add(MarcaEntity obj) {
+        return repositorio.save(obj);
+    }
 
     @Override
-    public MarcaEntity update(MarcaEntity obj, Integer id) {
+    public MarcaEntity update(MarcaEntity obj, Long id) {
         MarcaEntity objmar = repositorio.findById(id).get();
         BeanUtils.copyProperties(obj, objmar, "codmar");
         return repositorio.save(objmar);
     }
 
     @Override
-    public MarcaEntity delete(Integer id) {
+    public MarcaEntity delete(Long id) {
         MarcaEntity objmar = repositorio.findById(id).get();
-        objmar.setEstmar(false);
+        objmar.setEstado(false);
         return repositorio.save(objmar);
     }
 
     @Override
-    public MarcaEntity enable(Integer id) {
+    public MarcaEntity enable(Long id) {
         MarcaEntity objmar = repositorio.findById(id).get();
-        objmar.setEstmar(true);
+        objmar.setEstado(true);
         return repositorio.save(objmar);
     }
 }

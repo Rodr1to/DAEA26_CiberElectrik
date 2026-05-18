@@ -7,7 +7,7 @@ import pe.com.ciberelectrik.entity.CategoriaEntity;
 import java.util.List;
 
 @Repository
-public interface CategoriaRepository extends JpaRepository<CategoriaEntity, Integer> {
-    @Query("SELECT c FROM CategoriaEntity c WHERE c.estcat = true")
+public interface CategoriaRepository extends JpaRepository<CategoriaEntity, Long> {
+    @Query("SELECT c FROM CategoriaEntity c WHERE c.estado = true")
     List<CategoriaEntity> findAllCustom();
 }

@@ -14,23 +14,37 @@ public class ProductoRestController {
     private ProductoService servicio;
 
     @GetMapping
-    public List<ProductoEntity> findAll() { return servicio.findAll(); }
+    public List<ProductoEntity> findAll() {
+        return servicio.findAll();
+    }
 
     @GetMapping("/custom")
-    public List<ProductoEntity> findAllCustom() { return servicio.findAllCustom(); }
+    public List<ProductoEntity> findAllCustom() {
+        return servicio.findAllCustom();
+    }
 
     @GetMapping("/{id}")
-    public ProductoEntity findById(@PathVariable Integer id) { return servicio.findById(id); }
+    public ProductoEntity findById(@PathVariable Long id) {
+        return servicio.findById(id);
+    }
 
     @PostMapping
-    public ProductoEntity add(@RequestBody ProductoEntity obj) { return servicio.add(obj); }
+    public ProductoEntity add(@RequestBody ProductoEntity obj) {
+        return servicio.add(obj);
+    }
 
     @PutMapping("/{id}")
-    public ProductoEntity update(@RequestBody ProductoEntity obj, @PathVariable Integer id) { return servicio.update(obj, id); }
+    public ProductoEntity update(@RequestBody ProductoEntity obj, @PathVariable Long id) {
+        return servicio.update(obj, id);
+    }
 
     @DeleteMapping("/{id}")
-    public ProductoEntity delete(@PathVariable Integer id) { return servicio.delete(id); }
+    public ProductoEntity delete(@PathVariable Long id) {
+        return servicio.delete(id);
+    }
 
     @PutMapping("/enable/{id}")
-    public ProductoEntity enable(@PathVariable Integer id) { return servicio.enable(id); }
+    public ProductoEntity enable(@PathVariable Long id) {
+        return servicio.enable(id);
+    }
 }

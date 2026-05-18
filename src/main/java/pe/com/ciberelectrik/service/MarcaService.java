@@ -6,9 +6,9 @@ import java.util.List;
 public interface MarcaService {
     List<MarcaEntity> findAll();
     List<MarcaEntity> findAllCustom();
-    MarcaEntity findById(Integer id);
+    MarcaEntity findById(Long id);
     MarcaEntity add(MarcaEntity obj);
-    MarcaEntity update(MarcaEntity obj, Integer id);
-    MarcaEntity delete(Integer id);
-    MarcaEntity enable(Integer id);
+    MarcaEntity update(MarcaEntity obj, Long id);
+    MarcaEntity delete(Long id);
+    MarcaEntity enable(Long id);
 }

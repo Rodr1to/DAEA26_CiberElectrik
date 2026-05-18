@@ -6,9 +6,9 @@ import java.util.List;
 public interface CategoriaService {
     List<CategoriaEntity> findAll();
     List<CategoriaEntity> findAllCustom();
-    CategoriaEntity findById(Integer id);
+    CategoriaEntity findById(Long id);
     CategoriaEntity add(CategoriaEntity obj);
-    CategoriaEntity update(CategoriaEntity obj, Integer id);
-    CategoriaEntity delete(Integer id);
-    CategoriaEntity enable(Integer id);
+    CategoriaEntity update(CategoriaEntity obj, Long id);
+    CategoriaEntity delete(Long id);
+    CategoriaEntity enable(Long id);
 }
