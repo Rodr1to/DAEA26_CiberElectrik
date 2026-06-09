@@ -1,0 +1,14 @@
+package pe.com.ciberelectrik.service;
+
+import pe.com.ciberelectrik.entity.MarcaEntity;
+import java.util.List;
+
+public interface MarcaService {
+    List<MarcaEntity> findAll();
+    List<MarcaEntity> findAllCustom();
+    MarcaEntity findById(Long id);
+    MarcaEntity add(MarcaEntity obj);
+    MarcaEntity update(MarcaEntity obj, Long id);
+    MarcaEntity delete(Long id);
+    MarcaEntity enable(Long id);
+}

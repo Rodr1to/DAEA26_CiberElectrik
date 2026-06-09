@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CiberElectrik | Actualizar Empleado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Actualización de Empleado</h1>
+        <form class="row g-3" novalidate>
+            <div class="col-12"><label class="form-label">Código:</label><input type="text" class="form-control"
+                    name="txtCod" th:value="${empleado?.codemp}" readonly></div>
+            <div class="col-4"><label class="form-label">Nombre:</label><input type="text" class="form-control"
+                    name="txtNom" th:value="${empleado?.nomemp}"></div>
+            <div class="col-4"><label class="form-label">Ap. Paterno:</label><input type="text" class="form-control"
+                    name="txtApeP" th:value="${empleado?.apepemp}"></div>
+            <div class="col-4"><label class="form-label">Ap. Materno:</label><input type="text" class="form-control"
+                    name="txtApeM" th:value="${empleado?.apememp}"></div>
+            <div class="col-4"><label class="form-label">Documento:</label><input type="text" class="form-control"
+                    name="txtDoc" th:value="${empleado?.docemp}"></div>
+            <div class="col-4"><label class="form-label">Fec. Nacimiento:</label><input type="date" class="form-control"
+                    name="txtFec" th:value="${empleado?.fecemp}"></div>
+            <div class="col-4"><label class="form-label">Dirección:</label><input type="text" class="form-control"
+                    name="txtDir" th:value="${empleado?.diremp}"></div>
+            <div class="col-3"><label class="form-label">Teléfono:</label><input type="text" class="form-control"
+                    name="txtTel" th:value="${empleado?.telemp}"></div>
+            <div class="col-3"><label class="form-label">Celular:</label><input type="text" class="form-control"
+                    name="txtCel" th:value="${empleado?.celemp}"></div>
+            <div class="col-6"><label class="form-label">Correo:</label><input type="email" class="form-control"
+                    name="txtCor" th:value="${empleado?.coremp}"></div>
+            <div class="col-6"><label class="form-label">Usuario:</label><input type="text" class="form-control"
+                    name="txtUsu" th:value="${empleado?.usuemp}"></div>
+            <div class="col-6"><label class="form-label">Clave:</label><input type="password" class="form-control"
+                    name="txtCla" th:value="${empleado?.claemp}"></div>
+            <div class="col-3"><label class="form-label">Distrito:</label><select class="form-select"
+                    name="cboDistrito">
+                    <option selected disabled value="">Seleccione...</option>
+                </select></div>
+            <div class="col-3"><label class="form-label">Sexo:</label><select class="form-select" name="cboSexo">
+                    <option selected disabled value="">Seleccione...</option>
+                </select></div>
+            <div class="col-3"><label class="form-label">Rol:</label><select class="form-select" name="cboRol">
+                    <option selected disabled value="">Seleccione...</option>
+                </select></div>
+            <div class="col-3"><label class="form-label">Tipo Doc:</label><select class="form-select" name="cboTipoDoc">
+                    <option selected disabled value="">Seleccione...</option>
+                </select></div>
+            <div class="col-12"><label class="form-label">Estado:</label>
+                <div class="form-check"><input class="form-check-input" type="checkbox" name="chkEst"
+                        th:checked="${empleado?.estemp}"><label class="form-check-label">Habilitado</label></div>
+            </div>
+            <div class="col-12"><button class="btn btn-success" type="submit">Actualizar</button> <a
+                    th:href="@{/empleado/listar}" class="btn btn-dark">Regresar</a></div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

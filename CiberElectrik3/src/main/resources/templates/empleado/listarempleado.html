@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CiberElectrik | Mostrar Empleado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Listado de Empleados</h1>
+        <a th:href="@{/empleado/registro}" class="btn btn-primary">Registrar Empleado</a> <a
+            th:href="@{/empleado/habilita}" class="btn btn-warning">Habilitar Empleado</a> <a
+            th:href="@{/menuprincipal}" class="btn btn-dark">Regresar</a>
+        <div class="mb-3"></div>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Doc</th>
+                        <th>Celular</th>
+                        <th>Usuario</th>
+                        <th>Rol</th>
+                        <th>Distrito</th>
+                        <th>Estado</th>
+                        <th>Actualizar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="e : ${empleados}">
+                        <td th:text="${e.codemp}"></td>
+                        <td th:text="${e.nomemp}"></td>
+                        <td th:text="${e.apepemp + ' ' + e.apememp}"></td>
+                        <td th:text="${e.docemp}"></td>
+                        <td th:text="${e.celemp}"></td>
+                        <td th:text="${e.usuemp}"></td>
+                        <td th:text="${e.codrol.nomrol}"></td>
+                        <td th:text="${e.coddis.nomdis}"></td>
+                        <td th:text="${e.estemp ? 'Activo' : 'Inactivo'}"></td>
+                        <td><a th:href="@{/empleado/actualizar/{id}(id=${e.codemp})}"
+                                class="btn btn-success btn-sm">Actualizar</a></td>
+                        <td><a th:href="@{/empleado/eliminar/{id}(id=${e.codemp})}"
+                                class="btn btn-danger btn-sm">Eliminar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
